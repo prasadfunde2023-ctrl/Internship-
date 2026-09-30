@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Support - Accessible Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <div class="logo">Enterprise Portal</div>
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="contact.html" aria-current="page">Contact Support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section>
+      <h1>Contact Support Service</h1>
+      <p>Please complete the form below to submit an inquiry.</p>
+
+      <!-- Accessible Form -->
+      <form action="#" method="post" aria-labelledby="form-heading">
+        <h2 id="form-heading">Inquiry Submission Form</h2>
+
+        <!-- Grouped User Info -->
+        <fieldset>
+          <legend>Personal Identification</legend>
+          
+          <div class="form-group">
+            <label for="fullName">Full Name <span class="required" aria-hidden="true">*</span></label>
+            <input type="text" id="fullName" name="fullName" required aria-required="true" aria-describedby="name-hint">
+            <small id="name-hint">Enter your official first and last name.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="emailAddress">Email Address <span class="required" aria-hidden="true">*</span></label>
+            <input type="email" id="emailAddress" name="emailAddress" required aria-required="true" aria-describedby="email-hint">
+            <small id="email-hint">We will send confirmation to this email.</small>
+          </div>
+        </fieldset>
+
+        <!-- Grouped Inquiry Details -->
+        <fieldset>
+          <legend>Inquiry Category & Description</legend>
+
+          <div class="form-group">
+            <label for="department">Select Department</label>
+            <select id="department" name="department" aria-label="Department Selection">
+              <option value="tech">Technical Support</option>
+              <option value="billing">Billing & Finance</option>
+              <option value="general">General Inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Detailed Message <span class="required" aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+          </div>
+        </fieldset>
+
+        <button type="submit">Submit Request</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Accessible Public Portal. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

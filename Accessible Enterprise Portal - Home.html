@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible Enterprise Portal - Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Skip Link for Keyboard Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header & Main Navigation -->
+  <header>
+    <div class="logo">Enterprise Portal</div>
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="index.html" aria-current="page">Dashboard</a></li>
+        <li><a href="contact.html">Contact Support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="layout-container">
+    <!-- Sidebar -->
+    <aside aria-label="Sidebar Navigation">
+      <nav>
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="#services">Services Overview</a></li>
+          <li><a href="#reports">Data Reports</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+      <section id="services">
+        <h2>Services Overview</h2>
+        <article>
+          <h3>Public Welfare Services</h3>
+          <p>Access municipal records, public scheduling, and community requests through our unified accessible portal.</p>
+        </article>
+      </section>
+
+      <section id="reports">
+        <h2>Data Reports Table</h2>
+        
+        <!-- Accessible Data Table -->
+        <table aria-label="Public Service Applications Data">
+          <caption>Overview of Quarterly Public Service Applications</caption>
+          <thead>
+            <tr>
+              <th scope="col">Application ID</th>
+              <th scope="col">Service Name</th>
+              <th scope="col">Status</th>
+              <th scope="col">Submission Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>APP-101</td>
+              <td>Housing Permit</td>
+              <td>Approved</td>
+              <td>2026-08-12</td>
+            </tr>
+            <tr>
+              <td>APP-102</td>
+              <td>Business License</td>
+              <td>Pending Review</td>
+              <td>2026-09-01</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Interactive Actions</h2>
+        <button type="button" id="openModalBtn" aria-haspopup="dialog">Open Notification Modal</button>
+      </section>
+    </main>
+  </div>
+
+  <!-- Accessible Modal Dialog -->
+  <div id="accessibleModal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDesc" aria-modal="true" hidden>
+    <div class="modal-content">
+      <h2 id="modalTitle">System Notification</h2>
+      <p id="modalDesc">Your session will expire in 5 minutes. Save your progress to avoid losing data.</p>
+      <button type="button" id="closeModalBtn">Acknowledge & Close</button>
+    </div>
+  </div>
+
+  <!-- Accessible Footer -->
+  <footer>
+    <p>&copy; 2026 Accessible Public Portal. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const modal = document.getElementById('accessibleModal');
+    const openBtn = document.getElementById('openModalBtn');
+    const closeBtn = document.getElementById('closeModalBtn');
+
+    openBtn.addEventListener('click', () => {
+      modal.removeAttribute('hidden');
+      closeBtn.focus();
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.setAttribute('hidden', 'true');
+      openBtn.focus();
+    });
+  </script>
+</body>
+</html>
